@@ -1,0 +1,169 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: $ff-FSJoey-Regular;
+  font-weight: 400;
+  b,
+  &.bold {
+    font-family: $ff-FSJoey-Medium;
+    font-weight: 700;
+  }
+}
+
+h1 {
+  font-size: $fs-h1;
+  line-height: 38px;
+}
+
+h2 {
+  font-size: $fs-h2;
+  line-height: 34px;
+}
+
+h3 {
+  font-size: $fs-h3;
+  line-height: 29px;
+}
+
+h4 {
+  font-size: $fs-h4;
+  line-height: 25px;
+}
+
+h5 {
+  font-size: $fs-h5;
+  line-height: 20px;
+}
+
+h6 {
+  font-size: $fs-h6;
+  line-height: 18px;
+}
+
+p {
+  margin: 0;
+  font-family: $ff-Cabin-Regular;
+  font-weight: 400;
+  font-size: $fs-paragraph;
+  line-height: 22px;
+  b,
+  &.bold {
+    font-family: $ff-Cabin-Regular;
+    font-weight: 600;
+  }
+  &.lead {
+    font-size: $fs-lead-text;
+    line-height: 25px;
+  }
+  &.caption {
+    font-size: $fs-caption;
+    line-height: 19px;
+    &--mini {
+      font-size: $fs-mini-caption;
+      line-height: 16px;
+    }
+    &--heading {
+      font-family: $ff-FSJoey-Medium;
+      font-weight: 700;
+    }
+  }
+}
+
+a {
+  cursor: pointer;
+  font-size: $fs-btn-link;
+  font-family: $ff-Cabin-Regular;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: none;
+  &.underline {
+    text-decoration: underline;
+  }
+  &.small,
+  small {
+    font-size: $fs-btn-link-sm;
+    line-height: 20px;
+  }
+  &.breadcrumb {
+    font-size: $fs-btn-link-breadcrumb;
+    line-height: 16px;
+  }
+}
+
+input {
+  font-size: $fs-paragraph;
+  font-family: $ff-Cabin-Regular;
+  line-height: 22px;
+}
+
+button {
+  font-family: $ff-Cabin-SemiBold;
+  font-size: $fs-button;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.body-regular {
+  font-family: $ff-Cabin-Regular;
+  font-size: $fs-base;
+  line-height: $lh-base;
+}
+
+.body-regular-small {
+  font-family: $ff-Cabin-Regular;
+  font-size: $fs-small;
+  line-height: $lh-base;
+}
+
+.body-paragraph-400 {
+  font-family: $ff-Cabin-Regular;
+  font-size: $fs-body-paragraph;
+  line-height: $lh-body-paragraph;
+}
+
+.body-caption-400 {
+  font-family: $ff-Cabin-Regular;
+  font-size: $fs-body-caption;
+  line-height: 19px;
+}
+
+.body-paragraph-700 {
+  @extend .body-paragraph-400;
+  font-weight: 600;
+}
+
+.body-caption-700 {
+  @extend .body-caption-400;
+  font-weight: 600;
+}
+
+.body-caption-700-dark {
+  @extend .body-caption-700;
+  color: $neutral-900;
+}
+
+.body-paragraph-700-medium {
+  @extend .body-paragraph-700;
+  color: $neutral-700;
+}
+
+.body-paragraph-400-medium {
+  @extend .body-paragraph-400;
+  color: $neutral-700;
+}
+
+.input-label {
+  @extend .body-paragraph-400;
+  color: $neutral-700;
+}
+
+.button-link-paragraph-primary {
+  @extend .body-paragraph-400;
+  text-decoration-line: underline;
+  color: $primary-500;
+}

@@ -1,17 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import AppProvider from './containers/AppProvider/AppProvider';
+import * as serviceWorker from './serviceWorker';
+import './assets/stylesheets/index.scss';
+
+/* istanbul ignore next */
+const warningTitleCSS = 'color:red; font-size:60px; font-weight: bold; -webkit-text-stroke: 1px psblack;';
+const warningDescCSS = 'font-size: 18px;';
+
+// eslint-disable-next-line no-console
+console.log('%c¡Detente!', warningTitleCSS);
+// eslint-disable-next-line no-console
+console.log(
+  '%cEsta función del navegador está pensada para desarrolladores. Si alguien te ha indicado que copiaras y pegaras algo aquí para "hackear" la cuenta de alguien, se trata de un fraude. Si lo haces, esta persona podrá acceder a tu cuenta.',
+  warningDescCSS
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AppProvider />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+serviceWorker.unregister();
