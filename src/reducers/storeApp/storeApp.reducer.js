@@ -1,27 +1,25 @@
-import { 
-  UPDATE_INFO_USER 
-} from "../../constants/storeApp/storeApp.types.js";
 import {
   SAVE_INFO_STARTED,
   SAVE_INFO_SUCCESS,
-  SAVE_INFO_FAILURE,
   VALIDATE_INFO_STARTED,
   VALIDATE_INFO_SUCCESS,
-  VALIDATE_INFO_FAILURE
+  VALIDATE_INFO_FAILURE,
+  VALIDATE_INFO_RESET
 } from "../../constants/storeApp/storeApp.constant.js";
 
 export const initialState = {
-  infoUser: {
-    name: "",
-    lastName: "",
-    email: "",
-    password: ""
-  },
   saveInfo: {
-    isLoading: false,
-    isError: false
+    infoUser: {
+      name: "",
+      lastName: "",
+      email: "",
+      password: ""
+    },
+    isLoading: false
   },
   validateInfo: {
+    email: "",
+    isCompleted: false,
     isLoading: false,
     isError: false
   }
@@ -32,11 +30,6 @@ export default (state, { type, payload }) => {
   const localState = state || initialState;
 
   switch (type) {
-    case UPDATE_INFO_USER:
-      return {
-        ...localState,
-        infoUser: payload,
-      };
     case SAVE_INFO_STARTED:
       return {
         ...localState,
@@ -50,17 +43,8 @@ export default (state, { type, payload }) => {
         ...localState,
         saveInfo: {
           ...localState.saveInfo,
-          isLoading: false,
-          payload: payload
-        },
-      };
-    case SAVE_INFO_FAILURE:
-      return {
-        ...localState,
-        saveInfo: {
-          ...localState.saveInfo,
-          isLoading: false,
-          isError: true
+          infoUser: payload,
+          isLoading: false
         },
       };
     case VALIDATE_INFO_STARTED:
@@ -76,8 +60,9 @@ export default (state, { type, payload }) => {
         ...localState,
         validateInfo: {
           ...localState.validateInfo,
+          isCompleted: true,
           isLoading: false,
-          payload: payload
+          email: payload
         },
       };
     case VALIDATE_INFO_FAILURE:
@@ -85,9 +70,16 @@ export default (state, { type, payload }) => {
         ...localState,
         validateInfo: {
           ...localState.validateInfo,
+          email: payload,
+          isCompleted: true,
           isLoading: false,
-          isError: true,
+          isError: true
         },
+      };
+    case VALIDATE_INFO_RESET:
+      return {
+        ...localState,
+        validateInfo: initialState.validateInfo
       };
     default:
       return { ...localState };

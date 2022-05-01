@@ -1,68 +1,68 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import "../Login/Login.scss";
 import {
-  updateInfoUser as updateInfoUserAction,
+  validateInfo as validateInfoAction,
 } from "../../actions/storeApp/storeApp.action";
-// import md5 from "md5";
+import md5 from "md5";
 
 const Login = ({
-  infoUser,
-  updateInfoUser
+  validateInfo
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const iniciarSesion = el => {
-    console.log("iniciarSesion", el);
+  const handleLogin = () => {
+    const infoValidate = { 
+      email: email,
+      password: password && md5(password)
+    }; 
+    validateInfo(infoValidate);
   };
 
-  const disabledContinue = !infoUser.email || !infoUser.password;
-
-  useEffect(() => {
-    if ( email || password) {
-        updateInfoUser({       
-          email: email,
-          password: password 
-        });
-    }
-  }, [email, password, updateInfoUser]);
+  const disabledContinue = !email || !password;
 
   return (
     <div className="Login_containerMain">
       <div className="Login_containerSecundary">
         <div className="form-group">
-          <label>Email: </label>
+          <label>EMAIL</label>
           <br />
           <input
             type="email"
-            placeholder="Email"
             value={email}
             onChange={ e => setEmail(e.target.value) }
             required
+            className="form-control"
           />
           <br />
-          <label>Contraseña: </label>
+          <label>CONTRASEÑA</label>
           <br />
           <input
             type="password"
-            placeholder="Contraseña"
             value={password}
             onChange={ e => setPassword(e.target.value) }
             required
             className="form-control"
           />
           <br />
+          <div className="form-check form-switch">
+            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Suscribirse al Newsletter</label>
+          </div>
+          <br />
           <button
             id="company_data_step_continue_button"
             type="submit"
-            className="btn btn-primary"
-            onClick={iniciarSesion}
+            className="btn btn-primary Login_btnIn"
+            onClick={handleLogin}
             disabled={disabledContinue}
           >
-            Iniciar Sesión
+            Ingreso
           </button>
+          <br />
+          <a href="/">Olvidé Contraseña</a>
         </div>
       </div>
     </div>
@@ -70,16 +70,15 @@ const Login = ({
 };
 
 Login.propTypes = {
-  infoUser: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  updateInfoUser: PropTypes.func.isRequired
+  validateInfo: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  infoUser: state.storeApp.infoUser,
+  validateInfo: state.storeApp.validateInfo
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateInfoUser: payload => dispatch(updateInfoUserAction(payload))
+  validateInfo: payload => dispatch(validateInfoAction(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

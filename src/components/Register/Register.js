@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import "../Register/Register.scss";
 import {
-  updateInfoUser as updateInfoUserAction,
+  saveInfo as saveInfoAction
 } from "../../actions/storeApp/storeApp.action";
 import {
   handleNonMatchedForNames
@@ -11,8 +11,7 @@ import {
 import md5 from "md5";
 
 const Login = ({
-  infoUser,
-  updateInfoUser
+    saveInfo
 }) => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -21,84 +20,68 @@ const Login = ({
 
   let valueRegex = "";
 
-  const iniciarSesion = el => {
-    console.log("iniciarSesion", el);
+  const handleRegister = () => {
+    const infoUser = { 
+        name: name,
+        lastName: lastName,
+        email: email,
+        password: password && md5(password)
+    }; 
+    saveInfo(infoUser);
   };
 
-  const disabledContinue = !infoUser.name || 
-    !infoUser.lastName || 
-    !infoUser.email || 
-    !infoUser.password;
-
-  useEffect(() => {
-    if ( name || lastName || email || password) {
-        updateInfoUser({       
-          name: name,
-          lastName: lastName,
-          email: email,
-          password: md5(password) 
-        });
-    }
-  }, [name, lastName, email, password, updateInfoUser]);
+  const disabledContinue = !name || !lastName || !email || !password;
 
   return (
     <div className="Register_containerMain">
       <div className="Register_containerSecundary">
         <div className="form-group">
-          <label>Nombre: </label>
-          <br />
+          <label>NOMBRE</label>
           <input
-              type="text"
-              placeholder="Nombre"
-              value={name}
-              onChange={ e => {
-                  valueRegex = handleNonMatchedForNames(e.target.value);
-                  setName(valueRegex); 
+            className="form-control"
+            type="text"
+            value={name}
+            onChange={ e => {
+                    valueRegex = handleNonMatchedForNames(e.target.value);
+                    setName(valueRegex); 
                 }
-              }
-              required
-          />
-          <br />
-          <label>Apellido: </label>
-          <br />
-          <input
-              type="text"
-              placeholder="Apellido"
-              value={lastName}
-              onChange={ e => {
-                valueRegex = handleNonMatchedForNames(e.target.value);
-                setLastName(valueRegex); 
-              }
             }
-              required
+            required
           />
-          <br />
-          <label>Email: </label>
-          <br />
+          <label>APELLIDO</label>
           <input
+            className="form-control"
+            type="text"
+            value={lastName}
+            onChange={ e => {
+                    valueRegex = handleNonMatchedForNames(e.target.value);
+                    setLastName(valueRegex); 
+                }
+            }
+            required
+          />
+          <label>EMAIL</label>
+          <input
+            className="form-control"
             type="email"
-            placeholder="Email"
             value={email}
             onChange={ e => setEmail(e.target.value) }
             required
           />
-          <br />
-          <label>Contraseña: </label>
-          <br />
+          <label>CONTRASEÑA</label>
           <input
+            className="form-control"
             type="password"
-            placeholder="Contraseña"
             value={password}
             onChange={ e => setPassword(e.target.value) }
             required
-            className="form-control"
           />
           <br />
           <button
             id="company_data_step_continue_button"
             type="submit"
-            className="btn btn-primary"
-            onSubmit={iniciarSesion}
+            className="btn btn-primary Login_btnIn"
+            onClick={handleRegister}
             disabled={disabledContinue}
           >
             Registro
@@ -110,16 +93,15 @@ const Login = ({
 };
 
 Login.propTypes = {
-  infoUser: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  updateInfoUser: PropTypes.func.isRequired
+  saveInfo: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  infoUser: state.storeApp.infoUser,
+    saveInfo: state.storeApp.saveInfo
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateInfoUser: payload => dispatch(updateInfoUserAction(payload))
+  saveInfo: payload => dispatch(saveInfoAction(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

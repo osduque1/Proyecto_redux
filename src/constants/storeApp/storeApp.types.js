@@ -1,1 +1,0 @@
-export const UPDATE_INFO_USER = 'UPDATE_INFO_USER';

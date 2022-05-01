@@ -8,4 +8,51 @@
     &_containerSecundary{
         // background-color: red;
     }
+    &_btnIn{
+        background: linear-gradient(90deg, #8DE7ED 2.31%, #2FCEC5 100%);
+        border-radius: $spacing-l;
+        width: 100%;
+    }
+    &_btnIn:hover{
+        color: #2FCEC5;
+        background: $neutral-000;
+    }
+    &_btnIn.disabled{
+        cursor: pointer !important;
+    }
+}
+
+.form {
+    &-check {
+        &-label {
+            font-weight: bold;
+        }
+    }
+}
+
+.form {
+    &-check {
+        &-input {
+            cursor: pointer;
+        }
+    }
+}
+
+a {
+    color: $neutral-000;
+    font-family: $ff-Dosis-ExtraLight !important;
+    font-weight: bold !important;
+}
+
+a:hover {
+    color: #2FCEC5;
+}
+
+.form {
+    &-control{
+        color: rgba(255, 255, 255, 0.5)!important;
+        background-color: #3A3061;
+        border: 0;
+        border-bottom: 1px solid #ffffff;
+    }
 }

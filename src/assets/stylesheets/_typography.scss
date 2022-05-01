@@ -96,14 +96,14 @@ a {
 
 input {
   font-size: $fs-paragraph;
-  font-family: $ff-Cabin-Regular;
+  font-family: $ff-Dosis-ExtraLight;
   line-height: 22px;
 }
 
 button {
-  font-family: $ff-Cabin-SemiBold;
+  font-family: $ff-Dosis-ExtraLight;
   font-size: $fs-button;
-  font-weight: 500;
+  font-weight: bolder !important;
   line-height: 24px;
   letter-spacing: 0.5px;
 }

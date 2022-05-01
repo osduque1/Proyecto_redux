@@ -7,4 +7,9 @@
     &_containerSecundary{
 
     }
+    &_btnIn{
+        background: linear-gradient(90deg, #8DE7ED 2.31%, #2FCEC5 100%);
+        border-radius: $spacing-l;
+        width: 100%;
+    }
 }

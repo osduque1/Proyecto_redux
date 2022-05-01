@@ -8,11 +8,11 @@ import '../Home/Home.scss';
 const Home = () => {
     return (
         <div className='Home_container'>
-            <Tabs defaultActiveKey='first'>
-                <Tab eventKey='first' title='Ingreso'>
+            <Tabs defaultActiveKey='first' className='Home_Tabs'>
+                <Tab eventKey='first' title='INGRESO' className='Home_tabLogin'>
                     <Login />
                 </Tab>
-                <Tab eventKey='second' title='Registro'>
+                <Tab eventKey='second' title='REGISTRO' className='Home_tabRegister'>
                     <Register />
                 </Tab>
             </Tabs>
