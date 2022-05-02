@@ -1,13 +1,6 @@
 @import '../../assets/stylesheets/index.scss';
 
 .Login {
-    &_containerMain{
-        // background-color: aqua;
-        // height: 90vh;
-    }
-    &_containerSecundary{
-        // background-color: red;
-    }
     &_btnIn{
         background: linear-gradient(90deg, #8DE7ED 2.31%, #2FCEC5 100%);
         border-radius: $spacing-l;
@@ -26,14 +19,22 @@
         font-weight: bolder;
         margin-top: 10px;
         margin-bottom: 10px;
-        margin-left: 40px;
+        margin-left: 96px;
+    }
+    &_invalidEmail {
+        color: #2FC0BA;
+        font-weight: bolder;
+        margin-bottom: 10px;
+        margin-left: 273px;
     }
 }
 
 .form {
     &-check {
+        margin-left: 80px;
         &-label {
             font-weight: bold;
+            margin-top: 0;
         }
     }
 }
@@ -50,7 +51,7 @@ a {
     color: $neutral-000;
     font-family: $ff-Dosis-ExtraLight !important;
     font-weight: bold !important;
-    margin-left: 68px;
+    margin-left: 125px;
 }
 
 a:hover {
@@ -69,4 +70,8 @@ a:hover {
 .btn:disabled{
     pointer-events: auto;
     cursor: not-allowed;
+}
+
+input[type='email']:focus, input[type='password']:focus {
+    background-color:#3A3061;
 }

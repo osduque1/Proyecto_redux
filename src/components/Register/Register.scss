@@ -1,12 +1,6 @@
 @import '../../assets/stylesheets/index.scss';
 
 .Register {
-    &_containerMain{
-
-    }
-    &_containerSecundary{
-
-    }
     &_btnIn{
         background: linear-gradient(90deg, #8DE7ED 2.31%, #2FCEC5 100%);
         border-radius: $spacing-l;
@@ -17,6 +11,22 @@
         font-weight: bolder;
         margin-top: 10px;
         margin-bottom: 10px;
-        margin-left: 60px;
+        margin-left: 120px;
     }
+    &_invalidEmail {
+        color: #2FC0BA;
+        font-weight: bolder;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 297px;
+    }
+}
+
+
+input[type='text']:focus, input[type='email']:focus, input[type='password']:focus {
+    background-color:#3A3061;
+}
+
+label {
+    margin-top: 10px;
 }

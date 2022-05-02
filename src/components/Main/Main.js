@@ -80,65 +80,63 @@ const Main = () => {
                 </div>
             </div>
         </section>
-        <section className='Main-container-texts'>
-            <div>
-                <span className='Main-container-title'>Descripción</span>
-                <span className='Main-container-description'>In eu blandit metus. Phasellus vitae consequat augue. Cras auctor lacus a purus convallis...</span>
-                <span className='Main-container-read'>LEER MÁS</span>
-            </div>
-            <div>
-                <p>También te podría gustar</p>
-                <CardGroup>
-                    <Card>
-                        <CardImg
-                            alt='Card image cap'
-                            src='https://picsum.photos/318/180'
-                            top
-                            width='100%'
-                        />
-                        <CardBody>
-                            <CardTitle tag='h5'>
-                                Producto 1
-                            </CardTitle>
-                            <CardText>
-                                $130
-                            </CardText>
-                        </CardBody>
-                    </Card>
-                    <Card>
-                        <CardImg
-                            alt='Card image cap'
-                            src='https://picsum.photos/318/180'
-                            top
-                            width='100%'
-                        />
-                        <CardBody>
-                            <CardTitle tag='h5'>
-                                Producto 2
-                            </CardTitle>
-                            <CardText>
-                                $130
-                            </CardText>
-                        </CardBody>
-                    </Card>
-                    <Card>
-                        <CardImg
-                            alt='Card image cap'
-                            src='https://picsum.photos/318/180'
-                            top
-                            width='100%'
-                        />
-                        <CardBody>
-                            <CardTitle tag='h5'>
-                                Producto 3
-                            </CardTitle>
-                            <CardText>
-                                $130
-                            </CardText>
-                        </CardBody>
-                    </Card>
-                </CardGroup>
-            </div>
+        <section className='Main-container-txts'>
+            <p className='Main-container-title'>Descripción</p>
+            <p className='Main-container-description'>In eu blandit metus. Phasellus vitae consequat augue. Cras auctor lacus a purus convallis...</p>
+            <p className='Main-container-read'>LEER MÁS</p>
+        </section>
+        <section className='Main-container-images'>
+            <p className='Main-container-like'>También te podría gustar</p>
+            <CardGroup>
+                <Card>
+                    <CardImg
+                        alt='Card image cap'
+                        src='https://picsum.photos/318/180'
+                        top
+                        width='100%'
+                    />
+                    <CardBody>
+                        <CardTitle tag='h5'>
+                            Producto 1
+                        </CardTitle>
+                        <CardText>
+                            $130
+                        </CardText>
+                    </CardBody>
+                </Card>
+                <Card>
+                    <CardImg
+                        alt='Card image cap'
+                        src='https://picsum.photos/318/180'
+                        top
+                        width='100%'
+                    />
+                    <CardBody>
+                        <CardTitle tag='h5'>
+                            Producto 2
+                        </CardTitle>
+                        <CardText>
+                            $130
+                        </CardText>
+                    </CardBody>
+                </Card>
+                <Card>
+                    <CardImg
+                        alt='Card image cap'
+                        src='https://picsum.photos/318/180'
+                        top
+                        width='100%'
+                    />
+                    <CardBody>
+                        <CardTitle tag='h5'>
+                            Producto 3
+                        </CardTitle>
+                        <CardText>
+                            $130
+                        </CardText>
+                    </CardBody>
+                </Card>
+            </CardGroup>
         </section>
     </div>
   );

@@ -19,23 +19,30 @@ const Register = ({
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isEmailCorrect, setIsEmailCorrect] = useState(true);
 
   const { isError } = saveInfoUser;
   let valueRegex = '';
 
   const handleRegister = () => {
-    const infoUser = { 
-        name: name,
-        lastName: lastName,
-        email: email,
-        password: password && md5(password)
-    }; 
-    saveInfo(infoUser);
-    if(isBack){
-      let registerContainer = document.getElementById('register_container');
-      registerContainer.style.display = 'block';
-      let tabsContainer = document.getElementById('tabsContainer');
-      tabsContainer.style.display = 'none';
+    let regexEmail = /^(?![.W_])[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+[a-zA-Z0-9]$/;
+    let validateEmail = regexEmail.test(email);
+    if(validateEmail){
+      const infoUser = { 
+          name: name,
+          lastName: lastName,
+          email: email,
+          password: password && md5(password)
+      }; 
+      saveInfo(infoUser);
+      if(isBack){
+        let registerContainer = document.getElementById('register_container');
+        registerContainer.style.display = 'block';
+        let tabsContainer = document.getElementById('tabsContainer');
+        tabsContainer.style.display = 'none';
+      }
+    }else{
+      setIsEmailCorrect(validateEmail);
     }
   };
 
@@ -77,6 +84,7 @@ const Register = ({
             onChange={ e => setEmail(e.target.value) }
             required
           />
+          {!isEmailCorrect && <p className='Register_invalidEmail'>Correo Inválido</p>}
           <label>CONTRASEÑA</label>
           <input
             className='form-control'

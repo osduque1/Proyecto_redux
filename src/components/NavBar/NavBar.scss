@@ -88,3 +88,9 @@ a.nav {
         background: #2FCDC4 !important;
     }
 }
+
+@media (min-width: 1400px){
+    .navbar-expand-xxl .navbar-nav .nav-link {
+        margin-left: 63px;
+    }
+}

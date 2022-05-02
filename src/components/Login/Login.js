@@ -14,15 +14,22 @@ const Login = ({
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRedirect, setIsRedirect] = useState(false);
+  const [isEmailCorrect, setIsEmailCorrect] = useState(true);
 
   const { isError, isCompleted } = validateInfoUser;
 
   const handleLogin = () => {
-    const infoValidate = { 
-      email: email,
-      password: password && md5(password)
-    }; 
-    validateInfo(infoValidate);
+    let regexEmail = /^(?![.W_])[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9.]+[a-zA-Z0-9]$/;
+    let validateEmail = regexEmail.test(email);
+    if(validateEmail){
+      const infoValidate = { 
+        email: email,
+        password: password && md5(password)
+      }; 
+      validateInfo(infoValidate);
+    }else{
+      setIsEmailCorrect(validateEmail);
+    }
   };
 
   const disabledContinue = !email || !password;
@@ -53,6 +60,7 @@ const Login = ({
             className='form-control'
           />
           <br />
+          {!isEmailCorrect && <p className='Register_invalidEmail'>Correo Inválido</p>}
           <label>CONTRASEÑA</label>
           <br />
           <input

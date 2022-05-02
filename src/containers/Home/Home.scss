@@ -28,13 +28,15 @@
         background: #3A3061;
         opacity: 0.9;
         border-radius: 0 0 6px 6px;
+        box-shadow: $shadow-l;
     }
     &_tabRegister{
         padding: 27px;
         background: #3A3061;
         opacity: 0.9;
         border-radius: 0 0 6px 6px;
-        width: 320px;
+        width: 438.4px;
+        box-shadow: $shadow-l;
     }
     &_back{
         cursor: pointer;
@@ -62,7 +64,7 @@
         margin-bottom: 0 !important;
         background: #3A3061 !important;
         opacity: 0.35;
-        width: 160.4px;
-        font-size: 20px;
+        width: 219.4px;
+        font-size: 18px;
     }
 }
