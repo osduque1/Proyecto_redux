@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Home from '../../containers/Home/Home';
-import CarShop from '../../components/CarShop/CarShop';
+import CarShop from '../CarShop/CarShop';
 import NotFound from '../../components/NotFound/NotFound';
 
 const App = () => {

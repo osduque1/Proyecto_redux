@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import "../Register/Register.scss";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import '../Register/Register.scss';
 import {
   saveInfo as saveInfoAction
-} from "../../actions/storeApp/storeApp.action";
+} from '../../actions/storeApp/storeApp.action';
 import {
   handleNonMatchedForNames
 } from '../../utils/utils';
-import md5 from "md5";
+import md5 from 'md5';
 
 const Register = ({
   isBack,
   saveInfo,
   saveInfoUser
 }) => {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const { isError } = saveInfoUser;
-  let valueRegex = "";
+  let valueRegex = '';
 
   const handleRegister = () => {
     const infoUser = { 
@@ -42,13 +42,13 @@ const Register = ({
   const disabledContinue = !name || !lastName || !email || !password;
 
   return (
-    <div className="Register_containerMain">
-      <div className="Register_containerSecundary">
-        <div className="form-group">
+    <div className='Register_containerMain'>
+      <div className='Register_containerSecundary'>
+        <div className='form-group'>
           <label>NOMBRE</label>
           <input
-            className="form-control"
-            type="text"
+            className='form-control'
+            type='text'
             value={name}
             onChange={ e => {
                     valueRegex = handleNonMatchedForNames(e.target.value);
@@ -59,8 +59,8 @@ const Register = ({
           />
           <label>APELLIDO</label>
           <input
-            className="form-control"
-            type="text"
+            className='form-control'
+            type='text'
             value={lastName}
             onChange={ e => {
                     valueRegex = handleNonMatchedForNames(e.target.value);
@@ -71,32 +71,32 @@ const Register = ({
           />
           <label>EMAIL</label>
           <input
-            className="form-control"
-            type="email"
+            className='form-control'
+            type='email'
             value={email}
             onChange={ e => setEmail(e.target.value) }
             required
           />
           <label>CONTRASEÑA</label>
           <input
-            className="form-control"
-            type="password"
+            className='form-control'
+            type='password'
             value={password}
             onChange={ e => setPassword(e.target.value) }
             required
           />
           <br />
           <button
-            id="company_data_step_continue_button"
-            type="submit"
-            className="btn btn-primary Login_btnIn"
+            id='company_data_step_continue_button'
+            type='submit'
+            className='btn btn-primary Login_btnIn'
             onClick={handleRegister}
             disabled={disabledContinue}
           >
             Registro
           </button>
         </div>
-        {isError && <p className='Login_notRegister'>Ya se registró Previamente</p>}
+        {isError && <p className='Register_notRegister'>Ya se registró Previamente</p>}
       </div>
     </div>
   );

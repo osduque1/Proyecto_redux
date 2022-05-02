@@ -12,4 +12,11 @@
         border-radius: $spacing-l;
         width: 100%;
     }
+    &_notRegister {
+        color: #f5eb69;
+        font-weight: bolder;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 60px;
+    }
 }

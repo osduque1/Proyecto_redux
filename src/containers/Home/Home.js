@@ -52,7 +52,7 @@ const Home = (
         <div className='Home_container'>
             <NavBar isCompleted={isCompleted}/>
             { isCompleted && !isError ? (
-                <div id="register_container">
+                <div id='register_container'>
                     <img id='success' src={Success} alt='Success' />
                     <p onClick={handleBack} className='Home_back'>Regresar</p>
                 </div>
