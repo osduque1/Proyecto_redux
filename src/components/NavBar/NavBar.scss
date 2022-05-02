@@ -1,0 +1,90 @@
+.NavBar {
+    &-container {
+        align-self: stretch;
+        background-color: transparent!important;
+    }
+}
+
+.navbar>.container {
+    &-fluid {
+        justify-content: flex-end;
+    }
+}
+
+.offcanvas {
+    &-end {
+        border-left: none;
+        background-color: transparent;
+        right: auto;
+        width: 100%;
+    }
+}
+
+.offcanvas {
+    &-header {
+        justify-content: flex-end;
+    }
+}
+
+.navbar {
+    &-nav {
+        background-color: transparent;
+        margin-bottom: 60px;
+        margin-left: 40px;
+    }
+}
+
+.nav {
+    &-link {
+        background: transparent !important;
+    }
+}
+
+.navbar {
+    &-toggler{
+        border-color: transparent !important;
+    }
+}
+
+.navbar {
+    &-toggler:focus {
+        box-shadow: none;
+    }
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url('../../assets/images/hamburger.png');
+}
+
+.btn {
+    &-close {
+        background: url('../../assets/icons/ic_back.svg') center/1.5em auto no-repeat;
+        opacity: revert;
+        margin-right: 0.5rem !important;
+    }
+}
+
+a.nav {
+    &-link {
+        background: none !important;
+        width: 170px;
+        line-height: 39px;
+    }
+    &-link:hover {
+        background: none !important;
+        opacity: revert;
+    }
+}
+
+.offcanvas {
+    &-body {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+a.nav {
+    &-link.active{
+        background: #2FCDC4 !important;
+    }
+}

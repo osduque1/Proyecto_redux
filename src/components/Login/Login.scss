@@ -12,6 +12,7 @@
         background: linear-gradient(90deg, #8DE7ED 2.31%, #2FCEC5 100%);
         border-radius: $spacing-l;
         width: 100%;
+        margin-bottom: 10px;
     }
     &_btnIn:hover{
         color: #2FCEC5;
@@ -19,6 +20,13 @@
     }
     &_btnIn.disabled{
         cursor: pointer !important;
+    }
+    &_notRegister{
+        color: #f5eb69;
+        font-weight: bolder;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 55px;
     }
 }
 
@@ -42,6 +50,7 @@ a {
     color: $neutral-000;
     font-family: $ff-Dosis-ExtraLight !important;
     font-weight: bold !important;
+    margin-left: 65px;
 }
 
 a:hover {
@@ -55,4 +64,9 @@ a:hover {
         border: 0;
         border-bottom: 1px solid #ffffff;
     }
+}
+
+.btn:disabled{
+    pointer-events: auto;
+    cursor: not-allowed;
 }

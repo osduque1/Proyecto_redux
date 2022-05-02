@@ -1,21 +1,31 @@
 import {
   SAVE_INFO_STARTED,
   SAVE_INFO_SUCCESS,
+  SAVE_INFO_FAILURE,
   VALIDATE_INFO_STARTED,
   VALIDATE_INFO_SUCCESS,
   VALIDATE_INFO_FAILURE,
   VALIDATE_INFO_RESET
-} from "../../constants/storeApp/storeApp.constant.js";
-import store from "../../Store";
+} from '../../constants/storeApp/storeApp.constant.js';
+import store from '../../Store';
 
 export const saveInfo = payload => dispatch => {
+  const { infoUser } = store.getState().storeApp.saveInfo;
+
   dispatch({
     type: SAVE_INFO_STARTED
   });
-  dispatch({
-    type: SAVE_INFO_SUCCESS,
-    payload
-  });
+
+  if(infoUser.email !== payload.email){
+    dispatch({
+      type: SAVE_INFO_SUCCESS,
+      payload: payload
+    });
+  }else{
+    dispatch({
+      type: SAVE_INFO_FAILURE
+    });
+  }
 };
 
 export const validateInfo = (payload) => (dispatch) => {

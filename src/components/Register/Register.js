@@ -10,14 +10,17 @@ import {
 } from '../../utils/utils';
 import md5 from "md5";
 
-const Login = ({
-    saveInfo
+const Register = ({
+  isBack,
+  saveInfo,
+  saveInfoUser
 }) => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { isError } = saveInfoUser;
   let valueRegex = "";
 
   const handleRegister = () => {
@@ -28,6 +31,12 @@ const Login = ({
         password: password && md5(password)
     }; 
     saveInfo(infoUser);
+    if(isBack){
+      let registerContainer = document.getElementById('register_container');
+      registerContainer.style.display = 'block';
+      let tabsContainer = document.getElementById('tabsContainer');
+      tabsContainer.style.display = 'none';
+    }
   };
 
   const disabledContinue = !name || !lastName || !email || !password;
@@ -87,21 +96,22 @@ const Login = ({
             Registro
           </button>
         </div>
+        {isError && <p className='Login_notRegister'>Ya se registró Previamente</p>}
       </div>
     </div>
   );
 };
 
-Login.propTypes = {
+Register.propTypes = {
   saveInfo: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-    saveInfo: state.storeApp.saveInfo
+    saveInfoUser: state.storeApp.saveInfo
 });
 
 const mapDispatchToProps = dispatch => ({
   saveInfo: payload => dispatch(saveInfoAction(payload))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

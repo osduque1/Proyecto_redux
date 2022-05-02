@@ -5,7 +5,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         background: #393FD0;
         height: 100vh;
         background-image: url('../../assets/images/screen.png');
@@ -20,7 +20,6 @@
         }
     }
     &_Tabs{
-        opacity: 0.9;
         border-radius: 0 0 6px 6px;
         border-bottom: none;
     }
@@ -35,7 +34,17 @@
         background: #3A3061;
         opacity: 0.9;
         border-radius: 0 0 6px 6px;
-        width: 262px;
+        width: 320px;
+    }
+    &_back{
+        cursor: pointer;
+        font-weight: bolder;
+        font-size: 1.2rem;
+        margin-top: 10px;
+        margin-left: 125px;
+    }
+    &_back:hover{
+        color: #2FCEC5;
     }
 }
 
@@ -53,7 +62,7 @@
         margin-bottom: 0 !important;
         background: #3A3061 !important;
         opacity: 0.35;
-        width: 131.4px;
+        width: 160.4px;
         font-size: 20px;
     }
 }

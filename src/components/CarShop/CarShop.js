@@ -1,11 +1,11 @@
 // import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 
-import React from "react";
+import React from 'react';
 
 const CarShop = () => {
   const cerrarSesion = () => {
-    console.log("Entra");
+    console.log('Entra');
   };
 
   return (
