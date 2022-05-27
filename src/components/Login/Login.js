@@ -50,7 +50,7 @@ const Login = ({
     <div className='Login_containerMain'>
       <div className='Login_containerSecundary'>
         <div className='form-group'>
-          <label>EMAIL</label>
+          <label>CORREO</label>
           <br />
           <input
             type='email'
