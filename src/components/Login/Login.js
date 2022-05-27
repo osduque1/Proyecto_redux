@@ -94,7 +94,8 @@ const Login = ({
 };
 
 Login.propTypes = {
-  validateInfo: PropTypes.func.isRequired
+  validateInfo: PropTypes.func.isRequired,
+  validateInfoUser: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
