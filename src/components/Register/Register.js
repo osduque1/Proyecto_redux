@@ -111,11 +111,13 @@ const Register = ({
 };
 
 Register.propTypes = {
-  saveInfo: PropTypes.func.isRequired
+  saveInfo: PropTypes.func.isRequired,
+  isBack: PropTypes.bool.isRequired,
+  saveInfoUser: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    saveInfoUser: state.storeApp.saveInfo
+  saveInfoUser: state.storeApp.saveInfo
 });
 
 const mapDispatchToProps = dispatch => ({

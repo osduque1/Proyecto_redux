@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import {
   SAVE_INFO_STARTED,
   SAVE_INFO_SUCCESS,
@@ -28,8 +29,7 @@ export const initialState = {
   }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default (state, { type, payload }) => {
+export default (state = initialState, { type, payload } = {}) => {
   const localState = state || initialState;
 
   switch (type) {
@@ -41,7 +41,7 @@ export default (state, { type, payload }) => {
           isLoading: true,
           isCompleted: false,
           isError: false
-        },
+        }
       };
     case SAVE_INFO_SUCCESS:
       return {
@@ -51,7 +51,7 @@ export default (state, { type, payload }) => {
           infoUser: payload,
           isLoading: false,
           isCompleted: true
-        },
+        }
       };
     case SAVE_INFO_FAILURE:
       return {
@@ -62,7 +62,7 @@ export default (state, { type, payload }) => {
           isCompleted: true,
           isLoading: false,
           isError: true
-        },
+        }
       };
     case VALIDATE_INFO_STARTED:
       return {
@@ -70,7 +70,7 @@ export default (state, { type, payload }) => {
         validateInfo: {
           ...localState.validateInfo,
           isLoading: true,
-        },
+        }
       };
     case VALIDATE_INFO_SUCCESS:
       return {
@@ -80,7 +80,7 @@ export default (state, { type, payload }) => {
           isCompleted: true,
           isLoading: false,
           email: payload
-        },
+        }
       };
     case VALIDATE_INFO_FAILURE:
       return {
@@ -91,7 +91,7 @@ export default (state, { type, payload }) => {
           isCompleted: true,
           isLoading: false,
           isError: true
-        },
+        }
       };
     case VALIDATE_INFO_RESET:
       return {
