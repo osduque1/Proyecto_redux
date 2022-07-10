@@ -66,7 +66,7 @@ const Home = (
 
 Home.propTypes = {
     saveInfo: PropTypes.oneOfType([PropTypes.object]).isRequired
-  };
+};
   
 const mapStateToProps = state => ({
     saveInfo: state.storeApp.saveInfo
