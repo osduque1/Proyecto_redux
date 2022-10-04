@@ -4,7 +4,7 @@ import Error from "../../assets/images/error.svg";
 const NotFound = () => {
   const handleFetch = () => {
     fetch('https://master.d33y9gqtkw8kl1.amplifyapp.com/api/items?q=:pokemon')
-      .then((res) => res)
+      .then((res) => console.log(res))
       .then((json) => console.log(json));
   };
 
